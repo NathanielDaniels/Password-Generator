@@ -1,0 +1,106 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  background: rgb(73, 73, 73);
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+  cursor: default;
+  border-radius: 1rem;
+  background: blueviolet;
+  padding: 2rem;
+  border: 2px solid #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+  h1.title {
+    text-align: center;
+    font-size: 3rem;
+  }
+
+  h3.passwordDisplay {
+    background: #fff;
+    color: #000;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    margin: 1rem 0 2rem;
+    border: 1px solid #333;
+    border-radius: 0.5rem;
+    height: 2rem;
+    width: 350px;
+    word-break: break-all;
+    cursor: text;
+  }
+
+  form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(4, 1fr);
+    row-gap: 1rem;
+    column-gap: 3rem;
+    label,
+    button {
+      // padding-top: 20px;
+      font-size: 1.2rem;
+    }
+
+    label {
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .characterAmountContainer {
+      display: flex;
+      // justify-content: center;
+      align-items: center;
+    }
+    .numberInput {
+      margin-left: 5px;
+      text-align: center;
+      width: 3rem;
+      font-size: 1.1rem;
+    }
+    input {
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      &[type='checkbox'] {
+        &:hover {
+          transform: scale(1.5);
+        }
+      }
+    }
+    button {
+      grid-column: span 2;
+      margin: 20px auto;
+      font-size: 2rem;
+      border-radius: 50px;
+      border: 2px solid #fff;
+      background: transparent;
+      color: #fff;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s ease-in-out;
+      &:hover {
+        background: rgb(146, 66, 221);
+        box-shadow: 0px 5px 10px rgb(99, 31, 163);
+        transform: scale(1.02);
+      }
+    }
+  }
+}
