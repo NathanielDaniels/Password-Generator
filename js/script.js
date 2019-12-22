@@ -1,10 +1,11 @@
-const inputNum = document.getElementById('characterAmountNumber')
+const characterNumber = document.getElementById('characterAmountNumber')
+const characterRange = document.getElementById('characterAmountRange')
 
-const inputRange = document.getElementById('characterAmountRange')
-
-console.log(inputNum.value)
-
-if (inputRange.value === inputNum.value) {
-  console.log('working')
-} else {
+syncCharacterAmount = e => {
+  const value = e.target.value
+  characterAmountNumber.value = value
+  characterAmountRange.value = value
 }
+
+characterNumber.addEventListener('input', syncCharacterAmount)
+characterRange.addEventListener('input', syncCharacterAmount)
