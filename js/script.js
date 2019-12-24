@@ -7,7 +7,17 @@ const includeSymbols = document.getElementById("includeSymbols");
 
 characterNumber.addEventListener("input", syncCharacterAmount);
 characterRange.addEventListener("input", syncCharacterAmount);
-includeUppercase.addEventListener("input");
+includeUppercase.addEventListener("input", syncCharacterAmount);
+includeSymbols.addEventListener("input", syncCharacterAmount);
+
+const LOWERCASE_CHAR_CODES = arrayFromLowToHigh(97, 122);
+const UPPERCASE_CHAR_CODES = arrayFromLowToHigh(65, 90);
+const NUMBER_CHAR_CODES = arrayFromLowToHigh(48, 57);
+const SYMBOL_CHAR_CODES = arrayFromLowToHigh(33, 47).concat(
+  arrayFromLowToHigh(58, 64).concat(
+    arrayFromLowToHigh(91, 96).concat(arrayFromLowToHigh(123, 126))
+  )
+);
 
 form.addEventListener("submit", event => {
   event.preventDefault();
@@ -29,12 +39,13 @@ function generatePassword(
   includeUppercase,
   includeSymbols
 ) {
-  String.fromCharCode(65);
+  console.log(UPPERCASE_CHAR_CODES);
 }
 
-function fromLowToHigh(low, high) {
+function arrayFromLowToHigh(low, high) {
+  const array = [];
   for (let i = low; i <= high; i++) {
-    Array.push(i);
+    array.push(i);
   }
   return array;
 }
