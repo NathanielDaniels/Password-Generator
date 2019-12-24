@@ -13,6 +13,8 @@ form.addEventListener("submit", event => {
   event.preventDefault();
   const characterAmount = characterAmountNumber.value;
   const includeUppercase = includeUppercase.checked;
+  const includeNumbers = includeNumbers.checked;
+  const includeSymbols = includesymbols.checked;
   const password = generatePassword(
     characterAmount,
     includeUppercase,
