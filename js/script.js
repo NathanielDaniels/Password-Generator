@@ -28,7 +28,16 @@ function generatePassword(
   includeNumbers,
   includeUppercase,
   includeSymbols
-) {}
+) {
+  String.fromCharCode(65);
+}
+
+function fromLowToHigh(low, high) {
+  for (let i = low; i <= high; i++) {
+    Array.push(i);
+  }
+  return array;
+}
 
 function syncCharacterAmount(event) {
   const value = event.target.value;
