@@ -23,6 +23,13 @@ form.addEventListener("submit", event => {
   );
 });
 
+function generatePassword(
+  characterAmount,
+  includeNumbers,
+  includeUppercase,
+  includeSymbols
+) {}
+
 function syncCharacterAmount(event) {
   const value = event.target.value;
   characterAmountNumber.value = value;
