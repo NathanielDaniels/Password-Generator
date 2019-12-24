@@ -4,6 +4,7 @@ const includeUppercaseElement = document.getElementById("includeUppercase");
 const includeNumbersElement = document.getElementById("includeNumbers");
 const includeSymbolsElement = document.getElementById("includeSymbols");
 const form = document.getElementById("passwordGeneratorForm");
+const passwordDisplay = document.getElementById("passwordDisplay");
 
 const LOWERCASE_CHAR_CODES = arrayFromLowToHigh(97, 122);
 const UPPERCASE_CHAR_CODES = arrayFromLowToHigh(65, 90);
@@ -21,7 +22,7 @@ characterRange.addEventListener("input", syncCharacterAmount);
 
 form.addEventListener("submit", event => {
   event.preventDefault();
-  const characterAmount = characterAmountNumber.value;
+  const characterAmount = characterNumber.value;
   const includeUppercase = includeUppercaseElement.checked;
   const includeNumbers = includeNumbersElement.checked;
   const includeSymbols = includeSymbolsElement.checked;
@@ -31,6 +32,7 @@ form.addEventListener("submit", event => {
     includeNumbers,
     includeSymbols
   );
+  passwordDisplay.innerText = password;
 });
 
 function generatePassword(
@@ -42,7 +44,18 @@ function generatePassword(
   let charCodes = LOWERCASE_CHAR_CODES;
   if (includeUppercase) charCodes = charCodes.concat(UPPERCASE_CHAR_CODES);
   if (includeNumbers) charCodes = charCodes.concat(NUMBER_CHAR_CODES);
-  if (includeSymbols) charCodes = charCodes.concat(SYMBOLS_CHAR_CODES);
+  if (includeSymbols) charCodes = charCodes.concat(SYMBOL_CHAR_CODES);
+
+  console.log(charCodes);
+
+  const passwordCharacters = [];
+  for (let i = 0; i < characterAmount; i++) {
+    const characterCode =
+      charCodes[Math.floor(Math.random() * charCodes.length)];
+    passwordCharacters.push(String.fromCharCode(characterCode));
+  }
+
+  return passwordCharacters.join("");
 }
 
 function arrayFromLowToHigh(low, high) {
